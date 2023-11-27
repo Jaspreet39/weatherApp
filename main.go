@@ -30,7 +30,7 @@ const city = "6167865"
 // Define a function to make a request to the OpenWeatherMap API
 func getWeatherData(city string) (*WeatherData, error) {
 	// Construct the API URL with the city and the API key
-	apiURL := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", city, apiKey)
+	apiURL := fmt.Sprintf("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s&units=metric", city, apiKey)
 
 	// Make a GET request to the API URL
 	resp, err := http.Get(apiURL)
@@ -105,6 +105,6 @@ func main() {
 	mux.HandleFunc("/weather", weatherHandler)
 
 	// Start the server on port 8080
-	log.Println("Starting server on port 8080")
-	http.ListenAndServe(":8080", mux)
+	log.Println("Starting server on port 8585")
+	http.ListenAndServe(":8585", mux)
 }
